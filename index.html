@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .calculator {
+        background-color: blue;
+        width: 400px;
+        height: 600px;
+        border: 2px solid white;
+      }
+      .calc-display {
+        width: 100%;
+        height: 100px;
+        border: 2px solid black;
+        background-color: black;
+      }
+      .calc-btn {
+        width: 40px;
+        height: 40px;
+        background-color: grey;
+        border: 1px solid black;
+        padding: 2px;
+      }
+      .d-flex {
+        display: flex;
+      }
+      .justify-content-center {
+        justify-content: center;
+      }
+      .m-auto {
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title text-center">Calculator App</h1>
+    <h3 class="subtitle text-center">
+      this application was made using HTML, CSS, and JS
+      no external libraries because I need a refresher on the basics.
+    </h3>
+    <div class="calculator">
+      <div class="calc-container">
+        <div class="calc-display m-auto text-center" id="display_screen"></div>
+        <div id="buttons"></div>
+      </div>
+    </div>
+    <script>
+      const buttonNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      const buttonDiv = document.getElementById("buttons");
+      const operators = ["+", "-", "*", "/", "=", "cc"];
+      const result = document.getElementById('display_screen');
+      let userInputs = []
+      //we could add special operations later or sum.
+      //as of right now it would be cool to have a simple calculator app then navigate
+      //with a navbar and maybe have a morgage calculator and credit card etc.
+
+      createButtons(buttonNumbers, false);
+      createButtons(operators, true);
+
+      function createButtons(buttons, isAnOperator) {
+        for (i = 0; i < buttons.length; i++) {
+          let btn = document.createElement("button");
+          btn.innerHTML = buttons[i];
+          btn.className = "calc-btn d-flex justify-content-center";
+          btn.addEventListener("click", function () {
+            if(btn.innerHTML == "=") {
+                calculation();
+            } 
+            result.innerHTML += btn.innerHTML;
+          });
+          buttonDiv.appendChild(btn);
+        }
+      }
+
+      function calculateMorgagePayoff(totalLoanAmount, interestRate, numOfPayments, paymentsPaid, paymentsRemaining) {
+        interestRate = interestRate / 12;
+        numOfPayments = numOfPayments * 12;
+        paymentsPaid = paymentsPaid / 12;
+        paymentsRemaining = paymentsRemaining / 12;
+        
+
+
+      }
+
+      function calculateCreditCardPayoff() {
+
+      }
+
+
+    </script>
+    <script rel="./main.js"></script>
+  </body>
+</html>
