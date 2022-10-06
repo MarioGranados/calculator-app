@@ -6,31 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      :root {
+        --primary-color: #57c4e5;
+        --secondary-color: #edf2ef;
+        --calulator-color: grey;
+        --footer-color: #212738;
+        --nav-color: #212738;
+        --links-color: #129490;
+        --link-hover: #f97068;
+        --bg-color: #edf2ef;
+      }
       body {
-        background-color: black;
-        color: white;
+        background-color: var(--secondary-color);
       }
       .text-center {
         text-align: center;
       }
       .calculator {
-        background-color: blue;
+        background-color: var(--calulator-color);
         width: 400px;
         height: 600px;
-        border: 2px solid white;
+        border-radius: 15px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       }
       .calc-display {
-        width: 100%;
+        width: 80%;
+        margin: 25px auto;
         height: 100px;
-        border: 2px solid black;
-        background-color: black;
+        background: rgba(4, 59, 98, 0.29);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(11.4px);
+        -webkit-backdrop-filter: blur(11.4px);
+        border: 2px solid rgba(4, 59, 98, 1);
+        transition: 250ms;
+      }
+      .calc-display:hover {
+        border: 2px solid rgb(67, 85, 97);
+        background: rgba(4, 59, 98, 0.79);
+        transition: 250ms;
+
       }
       .calc-btn {
         width: 40px;
         height: 40px;
-        background-color: grey;
-        border: 1px solid black;
+        background-color: var(--primary-color);
+        border-radius: 10px;
         padding: 2px;
+        margin: 4px 2px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
       }
       .d-flex {
         display: flex;
@@ -38,29 +66,174 @@
       .justify-content-center {
         justify-content: center;
       }
+      .justify-content-around {
+        justify-content: space-around;
+      }
+
       .m-auto {
         margin: auto;
       }
+
+      .mt-5 {
+        margin-top: 50px;
+      }
+      .mb-5 {
+        margin-bottom: 50px;
+      }
+
+      /* navbar */
+      #navbar {
+        background-color: var(--nav-color);
+        width: 100%;
+        height: 5vh;
+        border-bottom: 1px solid white;
+        transition: 250ms;
+        padding: 5vh 2vh;
+      }
+      #navbar:hover {
+        background-color: blue;
+        height: 6vh;
+        border-bottom: 0px;
+        transition: 250ms;
+      }
+      .nav-link {
+        text-decoration: none;
+        display: inline-block;
+        margin: 2px 10px;
+        padding: 2px 5px;
+        transition: 250ms;
+      }
+      .nav-link:hover {
+        background-color: var(--link-hover);
+        transition: 250ms;
+      }
+      #navbar a {
+        text-decoration: none;
+        color: var(--links-color);
+      }
+      #navbar a:hover {
+        color: yellow;
+      }
+      /* navbar ends here */
+      .container {
+        width: 95%;
+        margin: auto;
+      }
+
+      .row {
+        display: flex;
+        width: 100%;
+        margin: auto;
+      }
+      .col {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 100%;
+      }
+
+      /* footer */
+      #footer {
+        background-color: var(--footer-color);
+        height: 5vh;
+        border-top: white;
+        color: var(--secondary-color);
+        padding: 5vh 2vh;
+        margin-top: 5vh;
+      }
+      .footer-link {
+        margin: 5px 12px;
+        padding: 5px 10px;
+        text-align: center;
+        transition: 250ms;
+      }
+      .footer-link:hover {
+        background-color: var(--link-hover);
+        transition: 250ms;
+      }
+      #footer a {
+        text-decoration: none;
+        color: var(--links-color);
+      }
+
+      /* footer ends */
     </style>
   </head>
   <body>
-    <h1 class="title text-center">Calculator App</h1>
-    <h3 class="subtitle text-center">
-      this application was made using HTML, CSS, and JS
-      no external libraries because I need a refresher on the basics.
+    <!-- annoying pop-up -->
+
+    <!-- annoying pop-up ends -->
+
+    <!-- navigationa bar -->
+    <nav id="navbar">
+      <div class="container d-flex justify-content-around">
+        <div>
+          <a href="http://" class="nav-link">Calculator</a>
+          <a href="http://" class="nav-link">Morgage Calculator</a>
+          <a href="http://" class="nav-link">Credit Card Calculator</a>
+        </div>
+
+        <div>
+          <a href="http://" class="nav-link">To Github Project</a>
+          <a href="http://" class="nav-link">LinkedIn</a>
+          <a href="http://" class="nav-link">Resume</a>
+        </div>
+      </div>
+    </nav>
+    <!-- nav bar ends -->
+
+    <h1 class="title text-center mt-5">Calculator App</h1>
+    <h3 class="subtitle text-center mb-5">
+      this application was made using HTML, CSS, and JS no external libraries
+      because I need a refresher on the basics.
     </h3>
-    <div class="calculator">
-      <div class="calc-container">
-        <div class="calc-display m-auto text-center" id="display_screen"></div>
-        <div id="buttons"></div>
+    <div class="container d-flex justify-content-center">
+      <div class="calculator">
+        <div class="calc-container">
+          <div class="row">
+            <div
+              class="calc-display justify-content-center d-flex text-center"
+              id="display_screen"
+              style="color: white"
+            ></div>
+          </div>
+          <div class="container">
+            <div id="buttons" class="mt-5"></div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- calculator ends here -->
+
+    <!-- about section -->
+    <div class="container">
+      <div class="row">
+        <div class="col">Here is a col</div>
+        <div class="col">here is a second col</div>
+      </div>
+    </div>
+
+    <!-- about ends -->
+
+    <!-- footer -->
+    <footer id="footer">
+      <div class="container">
+        <div class="row justify-content-center">
+          <a href="http://" class="footer-link">Github</a>
+          <a href="http://" class="footer-link">LinkedIn</a>
+          <a href="http://" class="footer-link">go to top</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- footer ends -->
     <script>
       const buttonNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
       const buttonDiv = document.getElementById("buttons");
       const operators = ["+", "-", "*", "/", "=", "cc"];
-      const result = document.getElementById('display_screen');
-      let userInputs = []
+      const result = document.getElementById("display_screen");
+      let userInputs = [];
       //we could add special operations later or sum.
       //as of right now it would be cool to have a simple calculator app then navigate
       //with a navbar and maybe have a morgage calculator and credit card etc.
@@ -72,32 +245,41 @@
         for (i = 0; i < buttons.length; i++) {
           let btn = document.createElement("button");
           btn.innerHTML = buttons[i];
-          btn.className = "calc-btn d-flex justify-content-center";
+          btn.className = "calc-btn";
           btn.addEventListener("click", function () {
-            if(btn.innerHTML == "=") {
-                calculation();
-            } 
-            result.innerHTML += btn.innerHTML;
+            if (btn.innerHTML == "cc") {
+              result.innerHTML = "";
+            } else {
+              if (btn.innerHTML == "=") {
+                result.innerHTML = calculation(result.innerHTML);
+                console.log(result.innerHTML);
+              } else {
+                result.innerHTML += btn.innerHTML;
+              }
+            }
           });
           buttonDiv.appendChild(btn);
         }
       }
+      //make life simpler
+      function calculation(str) {
+        return Function(`'use strict'; return (${str})`)();
+      }
 
-      function calculateMorgagePayoff(totalLoanAmount, interestRate, numOfPayments, paymentsPaid, paymentsRemaining) {
+      function calculateMorgagePayoff(
+        totalLoanAmount,
+        interestRate,
+        numOfPayments,
+        paymentsPaid,
+        paymentsRemaining
+      ) {
         interestRate = interestRate / 12;
         numOfPayments = numOfPayments * 12;
         paymentsPaid = paymentsPaid / 12;
         paymentsRemaining = paymentsRemaining / 12;
-        
-
-
       }
 
-      function calculateCreditCardPayoff() {
-
-      }
-
-
+      function calculateCreditCardPayoff() {}
     </script>
     <script rel="./main.js"></script>
   </body>
