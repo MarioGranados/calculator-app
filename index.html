@@ -38,7 +38,7 @@
         width: 98%;
         margin: 5px auto;
         border-radius: 15px;
-        background-color: rgba(128, 128, 128, 0.05);
+        background-color: rgba(255, 255, 255, 0.05);
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
       }
       .calc-display {
@@ -138,8 +138,10 @@
 
       .row {
         display: flex;
+        flex-direction: row;
         width: 100%;
         margin: auto;
+    
       }
       .col {
         display: flex;
@@ -173,6 +175,54 @@
       }
 
       /* footer ends */
+
+      /* inputs */
+      input,
+      select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        transition: 250ms;
+      }
+      input:focus,
+      input:active {
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        border: 1px solid black;
+        transition: 250ms;
+      }
+      input:hover {
+        border: 1px solid blue;
+        transition: 250ms;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 12px 24px;
+        margin: 8px 0;
+        display: inline-block;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: 0;
+        color: white;
+        font-size: 24px;
+      }
+      .btn-primary {
+        background-color: var(--primary-color);
+        border: 1px solid var(--bg-color);
+        transition: 250ms;
+      }
+      .btn-primary:hover {
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        border: 1px solid var(--links-color);
+        background-color: var(--link-hover);
+        transition: 250ms;
+      }
+
+      /* inputs ends */
     </style>
   </head>
   <body>
@@ -221,27 +271,46 @@
     </div>
 
     <!-- morgage section -->
-    <form action="">
-        <label for="years_remaining">Years Remaining</label>
-        <input type="number" name="years_remaining" id="years_remaining">
+    <form action="">        
+        <h2 class="text-center mt-5">Morgage Calculator</h2>
 
-        <label for="original_morgage_term">original_morgage_term</label>
-        <input type="number" name="original_morgage_term" id="original_morgage_term">
+      <div class="row">
+        <div class="col">
+          <label for="years_remaining">Years Remaining</label>
+          <input type="number" name="years_remaining" id="years_remaining" />
 
+          <label for="original_morgage_term">original_morgage_term</label>
+          <input
+            type="number"
+            name="original_morgage_term"
+            id="original_morgage_term"
+          />
 
-        <label for="additional_monthly_payments">additional Monthly payments</label>
-        <input type="number" name="additional_monthly_payments" id="additional_monthly_payments">
+          <label for="additional_monthly_payments"
+            >additional Monthly payments</label
+          >
+          <input
+            type="number"
+            name="additional_monthly_payments"
+            id="additional_monthly_payments"
+          />
 
-        <label for="interest_rate">interest_rate</label>
-        <input type="number" name="interest_rate" id="interest_rate">
+          <label for="interest_rate">interest_rate</label>
+          <input type="number" name="interest_rate" id="interest_rate" />
 
-        <label for="number_of_years">number_of_years</label>
-        <input type="number" name="number_of_years" id="number_of_years">
+          <label for="number_of_years">number_of_years</label>
+          <input type="number" name="number_of_years" id="number_of_years" />
 
-        <button id="calculateMorgage">Calculate</button>
+          <button id="calculateMorgage" class="btn btn-primary">
+            Calculate
+          </button>
 
-        <div id="monthly_payments"></div>
-
+          <div id="monthly_payments"></div>
+        </div>
+        <div class="col">
+            second column
+        </div>
+      </div>
     </form>
     <!-- morgage section ends -->
 
@@ -282,9 +351,9 @@
       createButtons(buttonNumbers, false);
       createButtons(operators, true);
 
-      let morgageCalculator = document.querySelector('#calculateMorgage');
+      let morgageCalculator = document.querySelector("#calculateMorgage");
 
-      morgageCalculator.addEventListener('click', e => {
+      morgageCalculator.addEventListener("click", (e) => {
         e.preventDefault();
         calculateMorgagePayoff();
       });
@@ -314,25 +383,31 @@
         return Function(`'use strict'; return (${str})`)();
       }
 
-      function calculateMorgagePayoff() {   
-        let yearsRemaining = document.querySelector('#years_remaining').value,
-        originalMorgageTerm = document.querySelector('#original_morgage_term').value,
-        additionalMonthlyPayments = document.querySelector('#additional_monthly_payments').value,
-        interestRate = document.querySelector('#interest_rate').value,
-        numberOfYears = document.querySelector('#number_of_years').value;
+      function calculateMorgagePayoff() {
+        let yearsRemaining = document.querySelector("#years_remaining").value,
+          originalMorgageTerm = document.querySelector(
+            "#original_morgage_term"
+          ).value,
+          additionalMonthlyPayments = document.querySelector(
+            "#additional_monthly_payments"
+          ).value,
+          interestRate = document.querySelector("#interest_rate").value,
+          numberOfYears = document.querySelector("#number_of_years").value;
 
         let totalSavings = 0;
         let monthlyPayment = 0;
-        interestRate = (interestRate * .01) / 12;
+        interestRate = (interestRate * 0.01) / 12;
 
-        monthlyPayment = originalMorgageTerm * (interestRate * (1 + interestRate)**(numberOfYears * 12)) / ((1 + interestRate)**(numberOfYears * 12) - 1)
+        monthlyPayment =
+          (originalMorgageTerm *
+            (interestRate * (1 + interestRate) ** (numberOfYears * 12))) /
+          ((1 + interestRate) ** (numberOfYears * 12) - 1);
         console.log(monthlyPayment);
 
-        let results = document.getElementById('monthly_payments');
-        results.innerHTML = "Your Monthly Payments Would Be: " + Math.round(monthlyPayment).toString();
-
-
-
+        let results = document.getElementById("monthly_payments");
+        results.innerHTML =
+          "Your Monthly Payments Would Be: " +
+          Math.round(monthlyPayment).toString();
       }
 
       function calculateCreditCardPayoff() {}
