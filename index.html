@@ -41,6 +41,20 @@
         background-color: rgba(255, 255, 255, 0.05);
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
       }
+      /* grid css for buttons */
+      .btn-grid {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        padding: 10px;
+      }
+      .btn-grid-item {
+        padding: 30px 20px;
+        margin: 2px 4px;
+        font-size: 15px;
+        text-align: center;
+        font-weight: bold;
+      }
+      /* grid ends  */
       .calc-display {
         width: 80%;
         margin: 25px auto;
@@ -59,12 +73,8 @@
         transition: 250ms;
       }
       .calc-btn {
-        width: 40px;
-        height: 40px;
         background-color: var(--primary-color);
         border-radius: 8%;
-        padding: 2px;
-        margin: 4px 2px;
         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
           rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
         transition: 250ms;
@@ -264,7 +274,7 @@
             ></div>
           </div>
           <div class="container">
-            <div id="buttons" class="mt-5"></div>
+            <div id="buttons" class="btn-grid"></div>
           </div>
         </div>
       </div>
@@ -339,17 +349,15 @@
 
     <!-- footer ends -->
     <script>
-      const buttonNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
       const buttonDiv = document.getElementById("buttons");
-      const operators = ["+", "-", "*", "/", "=", "cc"];
+      const calculatorButtons = [1,2,3, "cc", 4,5,6, "+", 7,8,9, "*", "", 0, "/", "="]
       const result = document.getElementById("display_screen");
-      let userInputs = [];
       //we could add special operations later or sum.
       //as of right now it would be cool to have a simple calculator app then navigate
       //with a navbar and maybe have a morgage calculator and credit card etc.
 
-      createButtons(buttonNumbers, false);
-      createButtons(operators, true);
+
+    createButtons(calculatorButtons)
 
       let morgageCalculator = document.querySelector("#calculateMorgage");
 
@@ -358,11 +366,11 @@
         calculateMorgagePayoff();
       });
 
-      function createButtons(buttons, isAnOperator) {
+      function createButtons(buttons) {
         for (i = 0; i < buttons.length; i++) {
           let btn = document.createElement("button");
           btn.innerHTML = buttons[i];
-          btn.className = "calc-btn";
+          btn.className = "calc-btn btn-grid-item";
           btn.addEventListener("click", function () {
             if (btn.innerHTML == "cc") {
               result.innerHTML = "";
