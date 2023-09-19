@@ -1,0 +1,254 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --light: #fff5e0;
+  --primary: #ff6969;
+  --secondary: #bb2525;
+  --dark: #141e46;
+
+  --primary-color: #57c4e5;
+  --secondary-color: #edf2ef;
+  --calulator-color: grey;
+  --footer-color: #212738;
+  --nav-color: #212738;
+  --links-color: #129490;
+  --link-hover: #f97068;
+  --bg-color: #edf2ef;
+}
+
+body {
+  background-color: var(--light);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.calculator {
+  border: 1px solid var(--dark);
+  width: 400px;
+  height: 600px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+/* grid css for buttons */
+.btn-grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 10px;
+}
+
+.btn-grid-item {
+  padding: 30px 20px;
+  margin: 2px 4px;
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* grid ends  */
+.calc-display {
+  width: 80%;
+  margin: 25px auto;
+  height: 100px;
+  background: var(--primary);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.4px);
+  -webkit-backdrop-filter: blur(11.4px);
+  border: 2px solid var(--dark);
+  transition: 250ms;
+}
+
+.calc-display:hover {
+  border: 2px solid rgb(67, 85, 97);
+  background: var(--secondary);
+  transition: 250ms;
+  cursor: text;
+}
+
+.calc-btn {
+  background-color: var(--primary);
+  border-radius: 8%;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  transition: 250ms;
+}
+
+.calc-btn:hover {
+  box-shadow: rgba(190, 194, 196, 0.3) 0px 1px 2px 0px,
+    rgba(176, 181, 184, 0.15) 0px 2px 6px 2px;
+  transition: 250ms;
+  background-color: var(--secondary);
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-around {
+  justify-content: space-around;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.mt-5 {
+  margin-top: 50px;
+}
+
+.mb-5 {
+  margin-bottom: 50px;
+}
+
+/* navbar */
+#navbar {
+  background-color: var(--secondary);
+  width: 100%;
+  border-bottom: 1px solid var(--light);
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  transition: 250ms;
+  padding: 5vh 2vh;
+}
+
+#navbar ul {
+  text-decoration: none;
+  list-style-type: none;
+}
+#navbar li {
+  text-decoration: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  display: inline-block;
+  margin: 8px 10px;
+  padding: 8px 8px;
+  transition: 250ms;
+  font-size: 18px;
+  color: var(--light)
+}
+
+.nav-link:hover {
+  background-color: var(--link-hover);
+  transition: 250ms;
+}
+
+#navbar a {
+  text-decoration: none;
+}
+
+#navbar a:hover {
+  color: yellow;
+}
+
+/* navbar ends here */
+.container {
+  width: 95%;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: auto;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+}
+
+/* footer */
+#footer {
+  background-color: var(--dark);
+  height: 5vh;
+  border-top: white;
+  color: var(--light);
+  padding: 5vh 2vh;
+  margin-top: 5vh;
+}
+
+.footer-link {
+  margin: 5px 12px;
+  padding: 5px 10px;
+  text-align: center;
+  transition: 250ms;
+}
+
+.footer-link:hover {
+  background-color: var(--link-hover);
+  transition: 250ms;
+}
+
+#footer a {
+  text-decoration: none;
+  color: var(--links-color);
+}
+
+/* footer ends */
+
+/* inputs */
+input,
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: 250ms;
+}
+
+input:focus,
+input:active {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 1px solid black;
+  transition: 250ms;
+}
+
+input:hover {
+  border: 1px solid blue;
+  transition: 250ms;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px 24px;
+  margin: 8px 0;
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 0;
+  color: white;
+  font-size: 24px;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  border: 1px solid var(--light);
+  transition: 250ms;
+}
+
+.btn-primary:hover {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 1px solid var(--links-color);
+  background-color: var(--link-hover);
+  transition: 250ms;
+}
+
+/* inputs ends */

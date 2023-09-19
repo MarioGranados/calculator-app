@@ -5,236 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      * {
-        padding: 0;
-        margin: 0;
-      }
-      :root {
-        --primary-color: #57c4e5;
-        --secondary-color: #edf2ef;
-        --calulator-color: grey;
-        --footer-color: #212738;
-        --nav-color: #212738;
-        --links-color: #129490;
-        --link-hover: #f97068;
-        --bg-color: #edf2ef;
-      }
-      body {
-        background-color: var(--secondary-color);
-      }
-      .text-center {
-        text-align: center;
-      }
-      .calculator {
-        background-color: var(--calulator-color);
-        width: 400px;
-        height: 600px;
-        border-radius: 10px;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-      }
-      .calc-container {
-        height: 590px;
-        width: 98%;
-        margin: 5px auto;
-        border-radius: 15px;
-        background-color: rgba(255, 255, 255, 0.05);
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-      }
-      /* grid css for buttons */
-      .btn-grid {
-        display: grid;
-        grid-template-columns: auto auto auto auto;
-        padding: 10px;
-      }
-      .btn-grid-item {
-        padding: 30px 20px;
-        margin: 2px 4px;
-        font-size: 15px;
-        text-align: center;
-        font-weight: bold;
-      }
-      /* grid ends  */
-      .calc-display {
-        width: 80%;
-        margin: 25px auto;
-        height: 100px;
-        background: rgba(4, 59, 98, 0.29);
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(11.4px);
-        -webkit-backdrop-filter: blur(11.4px);
-        border: 2px solid rgba(4, 59, 98, 1);
-        transition: 250ms;
-      }
-      .calc-display:hover {
-        border: 2px solid rgb(67, 85, 97);
-        background: rgba(4, 59, 98, 0.79);
-        transition: 250ms;
-      }
-      .calc-btn {
-        background-color: var(--primary-color);
-        border-radius: 8%;
-        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-          rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-        transition: 250ms;
-      }
-      .calc-btn:hover {
-        box-shadow: rgba(190, 194, 196, 0.3) 0px 1px 2px 0px,
-          rgba(176, 181, 184, 0.15) 0px 2px 6px 2px;
-        transition: 250ms;
-        background-color: #129490;
-      }
-
-      .d-flex {
-        display: flex;
-      }
-      .justify-content-center {
-        justify-content: center;
-      }
-      .justify-content-around {
-        justify-content: space-around;
-      }
-
-      .m-auto {
-        margin: auto;
-      }
-
-      .mt-5 {
-        margin-top: 50px;
-      }
-      .mb-5 {
-        margin-bottom: 50px;
-      }
-
-      /* navbar */
-      #navbar {
-        background-color: var(--nav-color);
-        width: 100%;
-        height: 5vh;
-        border-bottom: 1px solid white;
-        transition: 250ms;
-        padding: 5vh 2vh;
-      }
-      #navbar:hover {
-        background-color: blue;
-        height: 6vh;
-        border-bottom: 0px;
-        transition: 250ms;
-      }
-      .nav-link {
-        text-decoration: none;
-        display: inline-block;
-        margin: 2px 10px;
-        padding: 2px 5px;
-        transition: 250ms;
-      }
-      .nav-link:hover {
-        background-color: var(--link-hover);
-        transition: 250ms;
-      }
-      #navbar a {
-        text-decoration: none;
-        color: var(--links-color);
-      }
-      #navbar a:hover {
-        color: yellow;
-      }
-      /* navbar ends here */
-      .container {
-        width: 95%;
-        margin: auto;
-      }
-
-      .row {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        margin: auto;
-    
-      }
-      .col {
-        display: flex;
-        flex-direction: column;
-        margin: auto;
-        width: 100%;
-      }
-
-      /* footer */
-      #footer {
-        background-color: var(--footer-color);
-        height: 5vh;
-        border-top: white;
-        color: var(--secondary-color);
-        padding: 5vh 2vh;
-        margin-top: 5vh;
-      }
-      .footer-link {
-        margin: 5px 12px;
-        padding: 5px 10px;
-        text-align: center;
-        transition: 250ms;
-      }
-      .footer-link:hover {
-        background-color: var(--link-hover);
-        transition: 250ms;
-      }
-      #footer a {
-        text-decoration: none;
-        color: var(--links-color);
-      }
-
-      /* footer ends */
-
-      /* inputs */
-      input,
-      select {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
-        transition: 250ms;
-      }
-      input:focus,
-      input:active {
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-        border: 1px solid black;
-        transition: 250ms;
-      }
-      input:hover {
-        border: 1px solid blue;
-        transition: 250ms;
-      }
-
-      .btn {
-        width: 100%;
-        padding: 12px 24px;
-        margin: 8px 0;
-        display: inline-block;
-        box-sizing: border-box;
-        border-radius: 5px;
-        border: 0;
-        color: white;
-        font-size: 24px;
-      }
-      .btn-primary {
-        background-color: var(--primary-color);
-        border: 1px solid var(--bg-color);
-        transition: 250ms;
-      }
-      .btn-primary:hover {
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-        border: 1px solid var(--links-color);
-        background-color: var(--link-hover);
-        transition: 250ms;
-      }
-
-      /* inputs ends */
-    </style>
+    <link rel="stylesheet" href="./style.css" />
   </head>
+
   <body>
     <!-- annoying pop-up -->
 
@@ -243,17 +16,20 @@
     <!-- navigationa bar -->
     <nav id="navbar">
       <div class="container d-flex justify-content-around">
-        <div>
-          <a href="http://" class="nav-link">Calculator</a>
-          <a href="http://" class="nav-link">Morgage Calculator</a>
-          <a href="http://" class="nav-link">Credit Card Calculator</a>
-        </div>
-
-        <div>
-          <a href="http://" class="nav-link">To Github Project</a>
-          <a href="http://" class="nav-link">LinkedIn</a>
-          <a href="http://" class="nav-link">Resume</a>
-        </div>
+        <ul class="container d-flex">
+          <li><a href="/" class="nav-link">Calculator</a></li>
+        </ul>
+        <ul class="container d-flex" style="justify-content: flex-end">
+          <li>
+            <a href="/" class="nav-link">To Github Project</a>
+          </li>
+          <li>
+            <a href="/" class="nav-link">LinkedIn</a>
+          </li>
+          <li>
+            <a href="/" class="nav-link">Resume</a>
+          </li>
+        </ul>
       </div>
     </nav>
     <!-- nav bar ends -->
@@ -263,6 +39,7 @@
       this application was made using HTML, CSS, and JS no external libraries
       because I need a refresher on the basics.
     </h3>
+    <h4 class="text-center mb-5">You can use the buttons or keys</h4>
     <div class="container d-flex justify-content-center">
       <div class="calculator">
         <div class="calc-container">
@@ -270,7 +47,6 @@
             <div
               class="calc-display justify-content-center d-flex text-center"
               id="display_screen"
-              style="color: white"
             ></div>
           </div>
           <div class="container">
@@ -279,50 +55,6 @@
         </div>
       </div>
     </div>
-
-    <!-- morgage section -->
-    <form action="">        
-        <h2 class="text-center mt-5">Morgage Calculator</h2>
-
-      <div class="row">
-        <div class="col">
-          <label for="years_remaining">Years Remaining</label>
-          <input type="number" name="years_remaining" id="years_remaining" />
-
-          <label for="original_morgage_term">original_morgage_term</label>
-          <input
-            type="number"
-            name="original_morgage_term"
-            id="original_morgage_term"
-          />
-
-          <label for="additional_monthly_payments"
-            >additional Monthly payments</label
-          >
-          <input
-            type="number"
-            name="additional_monthly_payments"
-            id="additional_monthly_payments"
-          />
-
-          <label for="interest_rate">interest_rate</label>
-          <input type="number" name="interest_rate" id="interest_rate" />
-
-          <label for="number_of_years">number_of_years</label>
-          <input type="number" name="number_of_years" id="number_of_years" />
-
-          <button id="calculateMorgage" class="btn btn-primary">
-            Calculate
-          </button>
-
-          <div id="monthly_payments"></div>
-        </div>
-        <div class="col">
-            second column
-        </div>
-      </div>
-    </form>
-    <!-- morgage section ends -->
 
     <!-- calculator ends here -->
 
@@ -348,78 +80,6 @@
     </footer>
 
     <!-- footer ends -->
-    <script>
-      const buttonDiv = document.getElementById("buttons");
-      const calculatorButtons = [1,2,3, "cc", 4,5,6, "+", 7,8,9, "*", "", 0, "/", "="]
-      const result = document.getElementById("display_screen");
-      //we could add special operations later or sum.
-      //as of right now it would be cool to have a simple calculator app then navigate
-      //with a navbar and maybe have a morgage calculator and credit card etc.
-
-
-    createButtons(calculatorButtons)
-
-      let morgageCalculator = document.querySelector("#calculateMorgage");
-
-      morgageCalculator.addEventListener("click", (e) => {
-        e.preventDefault();
-        calculateMorgagePayoff();
-      });
-
-      function createButtons(buttons) {
-        for (i = 0; i < buttons.length; i++) {
-          let btn = document.createElement("button");
-          btn.innerHTML = buttons[i];
-          btn.className = "calc-btn btn-grid-item";
-          btn.addEventListener("click", function () {
-            if (btn.innerHTML == "cc") {
-              result.innerHTML = "";
-            } else {
-              if (btn.innerHTML == "=") {
-                result.innerHTML = calculation(result.innerHTML);
-                console.log(result.innerHTML);
-              } else {
-                result.innerHTML += btn.innerHTML;
-              }
-            }
-          });
-          buttonDiv.appendChild(btn);
-        }
-      }
-      //make life simpler
-      function calculation(str) {
-        return Function(`'use strict'; return (${str})`)();
-      }
-
-      function calculateMorgagePayoff() {
-        let yearsRemaining = document.querySelector("#years_remaining").value,
-          originalMorgageTerm = document.querySelector(
-            "#original_morgage_term"
-          ).value,
-          additionalMonthlyPayments = document.querySelector(
-            "#additional_monthly_payments"
-          ).value,
-          interestRate = document.querySelector("#interest_rate").value,
-          numberOfYears = document.querySelector("#number_of_years").value;
-
-        let totalSavings = 0;
-        let monthlyPayment = 0;
-        interestRate = (interestRate * 0.01) / 12;
-
-        monthlyPayment =
-          (originalMorgageTerm *
-            (interestRate * (1 + interestRate) ** (numberOfYears * 12))) /
-          ((1 + interestRate) ** (numberOfYears * 12) - 1);
-        console.log(monthlyPayment);
-
-        let results = document.getElementById("monthly_payments");
-        results.innerHTML =
-          "Your Monthly Payments Would Be: " +
-          Math.round(monthlyPayment).toString();
-      }
-
-      function calculateCreditCardPayoff() {}
-    </script>
-    <script rel="./main.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>
