@@ -132,15 +132,16 @@ body {
 .nav-link {
   text-decoration: none;
   display: inline-block;
-  margin: 8px 10px;
-  padding: 8px 8px;
+  margin: 4px 10px;
+  padding: 4px 8px;
   transition: 250ms;
   font-size: 18px;
   color: var(--light)
 }
 
 .nav-link:hover {
-  background-color: var(--link-hover);
+  background-color: var(--light);
+  color: var(--dark);
   transition: 250ms;
 }
 
@@ -149,7 +150,8 @@ body {
 }
 
 #navbar a:hover {
-  color: yellow;
+  color: var(--dark);
+  border-radius: 5px;
 }
 
 /* navbar ends here */
