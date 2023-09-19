@@ -53,7 +53,7 @@ body {
 
 /* grid ends  */
 .calc-display {
-  width: 80%;
+  width: 85%;
   margin: 25px auto;
   height: 100px;
   background: var(--primary);
